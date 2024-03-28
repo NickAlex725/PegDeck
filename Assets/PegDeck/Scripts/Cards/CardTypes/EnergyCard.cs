@@ -8,9 +8,8 @@ public class EnergyCard : CardParent
     {
         if (_player.GetCurrentEnergy() >= _energyCost)
         {
-            base.CardAction();
             _player.AddEnergy(_energyGain);
-            DestoryCard();
+            base.CardAction();
         }
     }
 }

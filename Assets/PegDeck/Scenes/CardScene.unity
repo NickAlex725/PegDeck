@@ -2486,7 +2486,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1513196951}
     - target: {fileID: 3774325601566818954, guid: 790edb404379f2145b93d4cc9f557848, type: 3}
+      propertyPath: _drawPileCountUI
+      value: 
+      objectReference: {fileID: 1513196951}
+    - target: {fileID: 3774325601566818954, guid: 790edb404379f2145b93d4cc9f557848, type: 3}
       propertyPath: _discardPileCount
+      value: 
+      objectReference: {fileID: 628804636}
+    - target: {fileID: 3774325601566818954, guid: 790edb404379f2145b93d4cc9f557848, type: 3}
+      propertyPath: _discardPileCountUI
       value: 
       objectReference: {fileID: 628804636}
     - target: {fileID: 3774325601566818954, guid: 790edb404379f2145b93d4cc9f557848, type: 3}

@@ -6,6 +6,7 @@ public abstract class CardParent : MonoBehaviour
 {
     [SerializeField] protected int _energyCost;
 
+    protected CardManager _cardManager;
     protected Player _player;
     protected int _attackStat;
     protected int _defenseGain = 10; //temp value, will be determined by peggle game later
@@ -14,16 +15,24 @@ public abstract class CardParent : MonoBehaviour
     private void Awake()
     {
         _player = FindObjectOfType<Player>();
+        _cardManager = FindObjectOfType<CardManager>();
     }
 
     public virtual void CardAction()
     {
         _player.UseEnergy(_energyCost);
+        _cardManager.DiscardCard(this);
         //add base func here (animations, sound, ect)
+        //DestoryCard();
     }
 
-    public void DestoryCard()
+    public void HideCard()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+    public void UnhideCard()
+    {
+        gameObject.SetActive(true);
     }
 }

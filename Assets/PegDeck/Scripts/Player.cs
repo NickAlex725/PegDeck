@@ -24,8 +24,7 @@ public class Player : MonoBehaviour
         _currentEnergy = _maxEnergy;
     }
 
-    //public methods to adjust players stats
-    #region
+    #region public methods to adjust players stats
     public void AddAttack(int amount)
     {
         _currentAttack += amount;

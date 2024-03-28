@@ -8,9 +8,8 @@ public class DefendCard : CardParent
     {
         if (_player.GetCurrentEnergy() >= _energyCost)
         {
-            base.CardAction();
             _player.AddDefense(_defenseGain);
-            DestoryCard();
+            base.CardAction();
         }
     }
 }
