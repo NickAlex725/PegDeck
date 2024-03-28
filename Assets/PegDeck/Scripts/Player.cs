@@ -64,12 +64,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DealDamage()
-    {
-        //once enemy is made: Take in the target as a parameter and
-        //call its take damage function
-    }
-
     public int GetCurrentEnergy()
     {
         return _currentEnergy;

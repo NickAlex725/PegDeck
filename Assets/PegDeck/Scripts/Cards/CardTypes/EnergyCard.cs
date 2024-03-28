@@ -6,6 +6,10 @@ public class EnergyCard : CardParent
 {
     public override void CardAction()
     {
-        _player.AddEnergy(_energyGain);
+        if (_player.GetCurrentEnergy() >= _energyCost)
+        {
+            base.CardAction();
+            _player.AddEnergy(_energyGain);
+        }
     }
 }

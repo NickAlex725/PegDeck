@@ -4,12 +4,20 @@ using UnityEngine;
 
 public abstract class CardParent : MonoBehaviour
 {
-    [SerializeField] protected Player _player;
+    [SerializeField] protected int _energyCost;
 
+    protected Player _player;
     protected int _attackStat;
     protected int _defenseStat;
     protected int _energyGain;
 
-    public abstract void CardAction();
+    private void Awake()
+    {
+        _player = FindObjectOfType<Player>();
+    }
 
+    public virtual void CardAction()
+    {
+        //add base func here (animations, sound, ect)
+    }
 }

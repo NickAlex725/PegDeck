@@ -6,6 +6,11 @@ public class AttackCard : CardParent
 {
     public override void CardAction()
     {
-        _player.AddAttack(_attackStat);
+        if (_player.GetCurrentEnergy() >= _energyCost)
+        {
+            base.CardAction();
+            //once enemy is made: Take in the target as a parameter and
+            //call its take damage function
+        }
     }
 }

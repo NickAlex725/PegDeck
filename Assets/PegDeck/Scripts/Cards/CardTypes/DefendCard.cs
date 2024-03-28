@@ -6,6 +6,10 @@ public class DefendCard : CardParent
 {
     public override void CardAction()
     {
-        _player.AddDefense(_defenseStat);
+        if (_player.GetCurrentEnergy() >= _energyCost)
+        {
+            base.CardAction();
+            _player.AddDefense(_defenseStat);
+        }
     }
 }
