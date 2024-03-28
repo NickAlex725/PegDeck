@@ -10,6 +10,7 @@ public class EnergyCard : CardParent
         {
             base.CardAction();
             _player.AddEnergy(_energyGain);
+            DestoryCard();
         }
     }
 }

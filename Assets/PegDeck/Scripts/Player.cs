@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _health = GetComponent<Health>();
+        _currentEnergy = _maxEnergy;
     }
 
     //public methods to adjust players stats
@@ -28,26 +29,26 @@ public class Player : MonoBehaviour
     public void AddAttack(int amount)
     {
         _currentAttack += amount;
-        _attackUI.text = "Attack: " + _currentAttack;
+        _attackUI.text = "Attack:" + _currentAttack;
     }
 
     public void AddDefense(int amount)
     {
         _currentDefense += amount;
-        _defenseUI.text = "Defense: " + _currentDefense;
+        _defenseUI.text = "Defense:" + _currentDefense;
     }
 
     public void AddEnergy(int amount)
     {
         //current energy may be show higher than max energy, this is intentional
         _currentEnergy += amount;
-        _energyUI.text = "Energy: " + _currentEnergy + " / " + _maxEnergy;
+        _energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
     }
 
     public void UseEnergy(int amount)
     {
         _currentEnergy -= amount;
-        _energyUI.text = "Energy: " + _currentEnergy + " / " + _maxEnergy;
+        _energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
     }
     #endregion 
 

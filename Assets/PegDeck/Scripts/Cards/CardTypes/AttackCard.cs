@@ -11,6 +11,7 @@ public class AttackCard : CardParent
             base.CardAction();
             //once enemy is made: Take in the target as a parameter and
             //call its take damage function
+            DestoryCard();
         }
     }
 }

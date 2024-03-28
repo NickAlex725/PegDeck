@@ -44,5 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ff646ceb29f05489988157ab6a3c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingHand: []
-  _startingDrawPile: []
+  _startingDrawPile:
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  - {fileID: 6466929853343989385, guid: 66af6cf8ae864444d91d19eabf5fb01a, type: 3}
+  _cardPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _drawPileCount: {fileID: 0}
+  _discardPileCount: {fileID: 0}

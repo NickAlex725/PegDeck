@@ -8,8 +8,8 @@ public abstract class CardParent : MonoBehaviour
 
     protected Player _player;
     protected int _attackStat;
-    protected int _defenseStat;
-    protected int _energyGain;
+    protected int _defenseGain = 10; //temp value, will be determined by peggle game later
+    protected int _energyGain = 2; //temp value, will be determined by peggle game later
 
     private void Awake()
     {
@@ -18,6 +18,12 @@ public abstract class CardParent : MonoBehaviour
 
     public virtual void CardAction()
     {
+        _player.UseEnergy(_energyCost);
         //add base func here (animations, sound, ect)
+    }
+
+    public void DestoryCard()
+    {
+        Destroy(gameObject);
     }
 }
