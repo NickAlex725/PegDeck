@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public void PlayGame()
+    {
+        Debug.Log("PegDeck, where you play peggle and a card game.");
+    }
 
-    public GameObject testButton;
-
-    void doExitGame()
+    public void Quitgame()
     {
         Application.Quit();
+        Debug.Log("The game just quit, get out!");
     }
 
-    void doPlayGame()
-    {
 
-    }
-
-    public void doCredits()
-    {
-        testButton.gameObject.SetActive(false);
-    }
 }
