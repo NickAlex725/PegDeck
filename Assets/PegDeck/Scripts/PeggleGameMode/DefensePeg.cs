@@ -8,5 +8,7 @@ public class DefensePeg : Peg
     {
         base.OnPegHit();
         _peggleManager.AddDefense();
+
+        StartCoroutine(DisablePeg());
     }
 }

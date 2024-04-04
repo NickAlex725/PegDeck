@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackPeg : Peg
@@ -8,5 +9,7 @@ public class AttackPeg : Peg
     {
         base.OnPegHit();
         _peggleManager.AddAttack();
+
+        StartCoroutine(DisablePeg());
     }
 }
