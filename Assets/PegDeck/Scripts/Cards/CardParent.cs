@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class CardParent : MonoBehaviour
 {
     [SerializeField] protected int _energyCost;
+    public int EnergyCost => _energyCost;
 
     protected CardManager _cardManager;
     protected Player _player;

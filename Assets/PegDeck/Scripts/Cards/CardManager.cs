@@ -31,12 +31,12 @@ public class CardManager : MonoBehaviour
     #region input
     private void OnEnable()
     {
-        _input.OnTouch += CheckForCardTap;
+        _input.OnTouchPosition += CheckForCardTap;
     }
 
     private void OnDisable()
     {
-        _input.OnTouch -= CheckForCardTap;
+        _input.OnTouchPosition -= CheckForCardTap;
     }
 
     public void CheckForCardTap(Vector2 touchPosition)
