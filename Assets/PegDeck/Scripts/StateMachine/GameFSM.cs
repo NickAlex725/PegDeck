@@ -9,8 +9,8 @@ public class GameFSM : StateMachineMB
 
     //state variables
     public GameSetupState SetupState;
-    public GameBallAimState BallAiming;
-    public GameBallFallState FallState;
+    public GamePeggeState PeggleState;
+    public GameTransitionState TransitionState;
     public GamePlayerTurnState PlayerTurn;
     public GameEnemyTurnState EnemyTurn;
 
@@ -19,8 +19,8 @@ public class GameFSM : StateMachineMB
         _controller = GetComponent<GameController>();
 
         SetupState = new GameSetupState(this, _controller);
-        BallAiming = new GameBallAimState(this, _controller);
-        FallState = new GameBallFallState(this, _controller);
+        PeggleState = new GamePeggeState(this, _controller);
+        TransitionState = new GameTransitionState(this, _controller);
         PlayerTurn = new GamePlayerTurnState(this, _controller);
         EnemyTurn = new GameEnemyTurnState(this, _controller);
     }

@@ -31,5 +31,6 @@ public class GameEnemyTurnState : State
     public override void Tick()
     {
         base.Tick();
+        _stateMachine.ChangeState(_stateMachine.TransitionState);
     }
 }

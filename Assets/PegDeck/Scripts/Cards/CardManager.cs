@@ -12,6 +12,8 @@ public class CardManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _drawPileCountUI;
     [SerializeField] private TextMeshProUGUI _discardPileCountUI;
 
+    public bool playerTurnOver = false;
+
     private List<CardParent> _discardPile;
     private List<CardParent> _drawPile;
     private List<CardParent> _cardsInHand;
@@ -85,6 +87,8 @@ public class CardManager : MonoBehaviour
         _cardsInHand.Clear();
 
         UpdateUI();
+
+        playerTurnOver = true;
     }
 
     //Randomly shuffles the discard pile into the draw pile

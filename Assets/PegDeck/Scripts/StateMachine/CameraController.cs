@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _targetPosition;
     private Camera _mainCamera;
 
+    public Action<bool> OnTargetPosition = delegate { };
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -41,8 +43,20 @@ public class CameraController : MonoBehaviour
             else
             {
                 _mainCamera.transform.position = _targetPosition;
+
+                if (_targetPosition == _pegglePosition)
+                    OnTargetPosition?.Invoke(true);
+                if (_targetPosition == _cardPosition)
+                    OnTargetPosition?.Invoke(false);
             }
         }
+    }
+    public bool CheckIfOnPeggleState()
+    {
+        if (_targetPosition == _pegglePosition)
+            return true;
+        else
+            return false;
     }
     public void SwapToPeggle()
     {

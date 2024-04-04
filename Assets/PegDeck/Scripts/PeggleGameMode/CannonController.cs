@@ -107,6 +107,13 @@ public class CannonController : MonoBehaviour
     public void LaunchReady()
     {
         ballReady = true;
+        if (_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
+    }
+    public void ResetCannon()
+    {
+        ballReady = true;
+        remainingBalls = 2;
+        if (_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
     }
     #endregion
 }

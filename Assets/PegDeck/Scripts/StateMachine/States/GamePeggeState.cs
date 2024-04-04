@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameBallFallState : State
+public class GamePeggeState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
 
-    public GameBallFallState(GameFSM stateMachine, GameController controller)
+    public GamePeggeState(GameFSM stateMachine, GameController controller)
     {
         _stateMachine = stateMachine;
         _controller = controller;
@@ -16,6 +16,11 @@ public class GameBallFallState : State
     public override void Enter()
     {
         base.Enter();
+        _controller.ChangeUI(true, false);
+
+        _controller.PeggleManager.canTransition = false;
+
+        _controller.PeggleManager.ResetCannon();
     }
 
     public override void Exit()
@@ -31,5 +36,10 @@ public class GameBallFallState : State
     public override void Tick()
     {
         base.Tick();
+
+        if(_controller.PeggleManager.canTransition == true)
+        {
+            _stateMachine.ChangeState(_stateMachine.TransitionState);
+        }
     }
 }

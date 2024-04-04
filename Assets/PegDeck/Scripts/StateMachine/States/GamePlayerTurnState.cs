@@ -16,6 +16,9 @@ public class GamePlayerTurnState : State
     public override void Enter()
     {
         base.Enter();
+        _controller.ChangeUI(false, true);
+
+        _controller.CardManager.playerTurnOver = false;
     }
 
     public override void Exit()
@@ -31,5 +34,10 @@ public class GamePlayerTurnState : State
     public override void Tick()
     {
         base.Tick();
+
+        if(_controller.CardManager.playerTurnOver == true)
+        {
+            _stateMachine.ChangeState(_stateMachine.EnemyTurn);
+        }
     }
 }

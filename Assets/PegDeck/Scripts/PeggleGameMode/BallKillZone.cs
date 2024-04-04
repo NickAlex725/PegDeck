@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class BallKillZone : MonoBehaviour
 {
     private PeggleManager _peggleManager;
 
+    public Action OnBallTrigger = delegate { };
     private void Awake()
     {
         _peggleManager = FindObjectOfType<PeggleManager>();
@@ -16,7 +18,8 @@ public class BallKillZone : MonoBehaviour
         {
             // transition level and peggle state
             Destroy(collision.gameObject);
-            _peggleManager.PrepCannon();
+
+            OnBallTrigger?.Invoke();
         }
     }
 }
