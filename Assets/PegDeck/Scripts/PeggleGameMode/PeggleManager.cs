@@ -5,6 +5,7 @@ using TMPro;
 
 public class PeggleManager : MonoBehaviour
 {
+    [SerializeField] private CannonController _cannon;
     [SerializeField] private TextMeshProUGUI _attackUI;
     [SerializeField] private TextMeshProUGUI _defenseUI;
 
@@ -22,5 +23,11 @@ public class PeggleManager : MonoBehaviour
         _defensePegsHit++;
         _defenseUI.text = _defensePegsHit.ToString();
     }
-
+    public void PrepCannon()
+    {
+        if(_cannon != null )
+        {
+            _cannon.LaunchReady();
+        }
+    }
 }
