@@ -8,8 +8,7 @@ public class AttackCard : CardParent
     {
         if (_player.GetCurrentEnergy() >= _energyCost)
         {
-            //once enemy is made: Take in the target as a parameter and
-            //call its take damage function
+            _player.DealDamage(_target);
             base.CardAction();
         }
     }

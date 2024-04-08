@@ -12,8 +12,8 @@ public class PeggleManager : MonoBehaviour
 
     public bool canTransition = false;
 
-    private int _attackPegsHit;
-    private int _defensePegsHit;
+    public int attackPegsHit { get; private set; }
+    public int defensePegsHit { get; private set; }
 
     private void OnEnable()
     {
@@ -33,15 +33,24 @@ public class PeggleManager : MonoBehaviour
     }
     public void AddAttack()
     {
-        _attackPegsHit++;
-        _attackUI.text = _attackPegsHit.ToString();
+        attackPegsHit++;
+        _attackUI.text = attackPegsHit.ToString();
     }
 
     public void AddDefense()
     {
-        _defensePegsHit++;
-        _defenseUI.text = _defensePegsHit.ToString();
+        defensePegsHit++;
+        _defenseUI.text = defensePegsHit.ToString();
     }
+
+    public void ResetPegsHit()
+    {
+        attackPegsHit = 0;
+        _attackUI.text = attackPegsHit.ToString();
+        defensePegsHit = 0;
+        _defenseUI.text = defensePegsHit.ToString();
+    }
+
     public void PrepCannon()
     {
         if(_cannon != null )

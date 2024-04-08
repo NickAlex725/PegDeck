@@ -62,10 +62,16 @@ public class CardManager : MonoBehaviour
     //Add x cards on top of a draw pile to players hand
     public void DrawCards(int drawAmount)
     {
+        if(_drawPile.Count == 0)
+        {
+            DiscardPileToDrawPile();
+        }
+
         for (int i = 0; i < drawAmount; i++)
         {
-            _cardsInHand.Add(_drawPile[0]);
-            _drawPile.RemoveAt(0);
+                _cardsInHand.Add(_drawPile[0]);
+                _drawPile.RemoveAt(0);
+
         }
         for (int i = 0; i < _cardsInHand.Count; i++)
         {
