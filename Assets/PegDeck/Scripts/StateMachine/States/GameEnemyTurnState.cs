@@ -33,9 +33,14 @@ public class GameEnemyTurnState : State
     public override void Tick()
     {
         base.Tick();
-        if (_controller.enemy.enemyTurnOver == true)
+
+        if(StateDuration > 3f)
         {
-            _stateMachine.ChangeState(_stateMachine.TransitionState);
+            if (_controller.enemy.enemyTurnOver == true)
+            {
+                _stateMachine.ChangeState(_stateMachine.TransitionState);
+            }
         }
+        
     }
 }

@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public void AddDefense(int amount)
     {
         _defenseStatOnCard += amount;
+        _defenseUI.text = "Defense:" + _currentDefense;
     }
 
     public void AddDefenseToPlayer()
@@ -98,5 +99,13 @@ public class Player : MonoBehaviour
     public int GetCurrentEnergy()
     {
         return _currentEnergy;
+    }
+    public int GetCurrentAttack()
+    {
+        return _currentAttack;
+    }
+    public int GetCurrentDefense()
+    {
+        return _currentDefense;
     }
 }

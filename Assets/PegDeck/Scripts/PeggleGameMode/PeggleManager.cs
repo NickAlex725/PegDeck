@@ -9,11 +9,14 @@ public class PeggleManager : MonoBehaviour
     [SerializeField] private CannonController _cannon;
     [SerializeField] private TextMeshProUGUI _attackUI;
     [SerializeField] private TextMeshProUGUI _defenseUI;
+    [SerializeField] private Transform _pegsParent;
 
     public bool canTransition = false;
 
     public int attackPegsHit { get; private set; }
     public int defensePegsHit { get; private set; }
+
+    List<GameObject> _pegsList = new List<GameObject>();
 
     private void OnEnable()
     {
@@ -23,6 +26,34 @@ public class PeggleManager : MonoBehaviour
     {
         _killZone.OnBallTrigger -= CheckTransition;
     }
+
+    public void StorePegs()
+    {
+        _pegsList.Clear();
+
+        if(_pegsParent != null)
+        {
+            foreach (Transform peg in _pegsParent)
+            {
+                _pegsList.Add(peg.gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogError("Missing peg parent.");
+        }
+    }
+    public void ResetPegs()
+    {
+        if(_pegsList.Count > 0)
+        {
+            foreach(GameObject peg in _pegsList)
+            {
+                peg.SetActive(true);
+            }
+        }
+    }
+
     private void CheckTransition()
     {
         PrepCannon();
@@ -49,6 +80,8 @@ public class PeggleManager : MonoBehaviour
         _attackUI.text = attackPegsHit.ToString();
         defensePegsHit = 0;
         _defenseUI.text = defensePegsHit.ToString();
+
+        ResetPegs();
     }
 
     public void PrepCannon()

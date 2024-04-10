@@ -605,6 +605,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3836182122148781675, guid: 9fb37bf4b2e83cd4c9c4f9b8e2cb1706, type: 3}
+      propertyPath: _pegsParent
+      value: 
+      objectReference: {fileID: 2015777133}
     - target: {fileID: 7338411401733764054, guid: 9fb37bf4b2e83cd4c9c4f9b8e2cb1706, type: 3}
       propertyPath: m_Name
       value: PeggleBoard
@@ -2659,6 +2663,11 @@ PrefabInstance:
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3560608643549964288, guid: df79b106143858d4e93e6b937ab700f6, type: 3}
   m_PrefabInstance: {fileID: 2014554212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2015777133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3836182121558695615, guid: 9fb37bf4b2e83cd4c9c4f9b8e2cb1706, type: 3}
+  m_PrefabInstance: {fileID: 486639510}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069851563
 GameObject:

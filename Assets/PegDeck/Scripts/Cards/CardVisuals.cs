@@ -10,10 +10,12 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _statsText;
 
     private CardParent _card;
+    private Player _player;
 
     private void Awake()
     {
         _card = GetComponent<CardParent>();
+        _player = FindObjectOfType<Player>();
     }
     private void Start()
     {
@@ -30,6 +32,23 @@ public class CardVisuals : MonoBehaviour
         if(_card != null)
         {
             if(_energyText != null) _energyText.text = _card.EnergyCost.ToString();
+        }
+        if(_player != null)
+        {
+            if(_statsText != null)
+            {
+                AttackCard attack = _card.GetComponentInParent<AttackCard>();
+                DefendCard defend = _card.GetComponentInParent<DefendCard>();
+
+                if(attack != null)
+                {
+                    _statsText.text = _player.GetCurrentAttack().ToString();
+                }
+                if(defend != null)
+                {
+                    _statsText.text = _player.GetCurrentDefense().ToString();
+                }
+            }
         }
     }
 }
