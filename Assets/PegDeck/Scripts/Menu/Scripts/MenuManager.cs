@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
+        SceneManager.LoadScene("GameScene");
         Debug.Log("PegDeck, where you play peggle and a card game.");
     }
 

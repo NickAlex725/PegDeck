@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/StandardAssets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/PegDeck/Scenes/Menu.unity
+    guid: 1f32dc1b461357248be92f60e71888ea
+  - enabled: 1
+    path: Assets/PegDeck/Scenes/GameScene.unity
+    guid: 2e08f177423c50c459388fa711df919a
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: c00b7124f4dd1a146a9ede5bef1a109d, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: aebea146b201f394799cd817faead51a, type: 2}
