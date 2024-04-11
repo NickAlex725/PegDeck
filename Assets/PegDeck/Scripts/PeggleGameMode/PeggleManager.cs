@@ -9,11 +9,14 @@ public class PeggleManager : MonoBehaviour
     [SerializeField] private CannonController _cannon;
     [SerializeField] private TextMeshProUGUI _attackUI;
     [SerializeField] private TextMeshProUGUI _defenseUI;
+    [SerializeField] private Transform _pegsParent;
 
     public bool canTransition = false;
 
-    private int _attackPegsHit;
-    private int _defensePegsHit;
+    public int attackPegsHit { get; private set; }
+    public int defensePegsHit { get; private set; }
+
+    List<GameObject> _pegsList = new List<GameObject>();
 
     private void OnEnable()
     {
@@ -23,6 +26,34 @@ public class PeggleManager : MonoBehaviour
     {
         _killZone.OnBallTrigger -= CheckTransition;
     }
+
+    public void StorePegs()
+    {
+        _pegsList.Clear();
+
+        if(_pegsParent != null)
+        {
+            foreach (Transform peg in _pegsParent)
+            {
+                _pegsList.Add(peg.gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogError("Missing peg parent.");
+        }
+    }
+    public void ResetPegs()
+    {
+        if(_pegsList.Count > 0)
+        {
+            foreach(GameObject peg in _pegsList)
+            {
+                peg.SetActive(true);
+            }
+        }
+    }
+
     private void CheckTransition()
     {
         PrepCannon();
@@ -33,15 +64,26 @@ public class PeggleManager : MonoBehaviour
     }
     public void AddAttack()
     {
-        _attackPegsHit++;
-        _attackUI.text = _attackPegsHit.ToString();
+        attackPegsHit++;
+        _attackUI.text = attackPegsHit.ToString();
     }
 
     public void AddDefense()
     {
-        _defensePegsHit++;
-        _defenseUI.text = _defensePegsHit.ToString();
+        defensePegsHit++;
+        _defenseUI.text = defensePegsHit.ToString();
     }
+
+    public void ResetPegsHit()
+    {
+        attackPegsHit = 0;
+        _attackUI.text = attackPegsHit.ToString();
+        defensePegsHit = 0;
+        _defenseUI.text = defensePegsHit.ToString();
+
+        ResetPegs();
+    }
+
     public void PrepCannon()
     {
         if(_cannon != null )

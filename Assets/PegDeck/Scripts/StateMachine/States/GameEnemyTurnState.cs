@@ -16,6 +16,8 @@ public class GameEnemyTurnState : State
     public override void Enter()
     {
         base.Enter();
+        _controller.enemy.enemyTurnOver = false;
+        _controller.enemy.DealDamage();
     }
 
     public override void Exit()
@@ -31,6 +33,14 @@ public class GameEnemyTurnState : State
     public override void Tick()
     {
         base.Tick();
-        _stateMachine.ChangeState(_stateMachine.TransitionState);
+
+        if(StateDuration > 3f)
+        {
+            if (_controller.enemy.enemyTurnOver == true)
+            {
+                _stateMachine.ChangeState(_stateMachine.TransitionState);
+            }
+        }
+        
     }
 }

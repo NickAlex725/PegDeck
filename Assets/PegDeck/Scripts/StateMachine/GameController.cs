@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private CardManager _cardManager;
     [SerializeField] private CameraController _cameraController;
 
+
     public PeggleManager PeggleManager => _peggleManager;
     public CardManager CardManager => _cardManager;
     public CameraController CameraController => _cameraController;
@@ -19,16 +20,19 @@ public class GameController : MonoBehaviour
     [SerializeField] private Canvas _cardUI;
 
     private GameFSM _stateMachine;
+    public Player player;
+    public Enemy enemy;
 
     private void Awake()
     {
         _stateMachine = GetComponent<GameFSM>();
+        player = FindObjectOfType<Player>();
+        enemy = FindObjectOfType<Enemy>();
     }
     public void ChangeUI(bool peggleActive, bool cardActive)
     {
         _peggleUI.gameObject.SetActive(peggleActive);
         _cardUI.gameObject.SetActive(cardActive);
-        Debug.Log("UI changed");
     }
     public void Transition()
     {

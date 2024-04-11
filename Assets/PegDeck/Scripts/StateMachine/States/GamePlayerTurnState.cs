@@ -17,8 +17,9 @@ public class GamePlayerTurnState : State
     {
         base.Enter();
         _controller.ChangeUI(false, true);
-
+        _controller.enemy.CalcDamage();
         _controller.CardManager.playerTurnOver = false;
+        _controller.CardManager.DrawCards(4);
     }
 
     public override void Exit()

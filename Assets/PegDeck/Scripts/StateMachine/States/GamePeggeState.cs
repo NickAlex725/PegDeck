@@ -19,13 +19,19 @@ public class GamePeggeState : State
         _controller.ChangeUI(true, false);
 
         _controller.PeggleManager.canTransition = false;
-
+        _controller.PeggleManager.ResetPegsHit();
         _controller.PeggleManager.ResetCannon();
+
+        _controller.player.ResetStats();
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        //add stats to player
+        _controller.player.AddAttack(_controller.PeggleManager.attackPegsHit);
+        _controller.player.AddDefense(_controller.PeggleManager.defensePegsHit);
     }
 
     public override void FixedTick()

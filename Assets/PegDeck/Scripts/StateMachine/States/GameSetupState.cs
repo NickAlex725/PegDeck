@@ -16,6 +16,9 @@ public class GameSetupState : State
     public override void Enter()
     {
         base.Enter();
+
+        //store pegs
+        _controller.PeggleManager.StorePegs();
     }
 
     public override void Exit()

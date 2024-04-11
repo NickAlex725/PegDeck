@@ -9,14 +9,16 @@ public abstract class CardParent : MonoBehaviour
 
     protected CardManager _cardManager;
     protected Player _player;
-    protected int _attackStat;
-    protected int _defenseGain = 10; //temp value, will be determined by peggle game later
-    protected int _energyGain = 2; //temp value, will be determined by peggle game later
+    protected Enemy _target;
+    protected int _attackGain;
+    protected int _energyGain;
+
 
     private void Awake()
     {
         _player = FindObjectOfType<Player>();
         _cardManager = FindObjectOfType<CardManager>();
+        _target = FindObjectOfType<Enemy>();
     }
 
     public virtual void CardAction()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] int _maxHealth;
+    [SerializeField] private int _maxHealth;
     private int _minHealth = 0;
 
     public int _currentHealth { get; private set; }
@@ -28,5 +28,10 @@ public class Health : MonoBehaviour
         _currentHealth -= damageAmount;
         _currentHealth = Mathf.Clamp(_currentHealth, _minHealth, _maxHealth); //makes sure health doesnt go past the max and min
         return _currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
     }
 }
