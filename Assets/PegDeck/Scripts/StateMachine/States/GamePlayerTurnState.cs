@@ -20,6 +20,9 @@ public class GamePlayerTurnState : State
         _controller.enemy.CalcDamage();
         _controller.CardManager.playerTurnOver = false;
         _controller.CardManager.DrawCards(4);
+
+        _controller.player.UpdateHealthUI();
+        _controller.enemy.UpdateHealthUI();
     }
 
     public override void Exit()

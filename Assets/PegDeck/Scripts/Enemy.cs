@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class Enemy : MonoBehaviour
 
     private Health _health;
     private Player _player;
-    private int _damageAmount;
+    
+    public int damageAmount { get; private set; }
 
     public bool enemyTurnOver = false;
+
+    public Action OnEnemyDefeated = delegate { };
 
     private void Awake()
     {
@@ -31,17 +35,28 @@ public class Enemy : MonoBehaviour
         _health.TakeDamage(damage);
         _healthSlider.value = _health._currentHealth;
         _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
+
+        if(_health._currentHealth <= 0)
+        {
+            OnEnemyDefeated?.Invoke();
+        }
     }
 
     public void DealDamage()
     {
-        _player.TakeDamage(_damageAmount);
+        _player.TakeDamage(damageAmount);
         enemyTurnOver = true;
     }
 
     public void CalcDamage()
     {
-        _damageAmount = _damagePool[Random.Range(0, _damagePool.Length)];
-        _damagePreview.text = _damageAmount.ToString();
+        damageAmount = _damagePool[UnityEngine.Random.Range(0, _damagePool.Length)];
+        _damagePreview.text = damageAmount.ToString();
+    }
+
+    public void UpdateHealthUI()
+    {
+        _healthSlider.value = _health._currentHealth;
+        _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
     }
 }

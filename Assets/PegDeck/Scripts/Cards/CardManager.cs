@@ -11,6 +11,7 @@ public class CardManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _drawPileCountUI;
     [SerializeField] private TextMeshProUGUI _discardPileCountUI;
+    public TextMeshProUGUI enemyAttackUI;
 
     public bool playerTurnOver = false;
 

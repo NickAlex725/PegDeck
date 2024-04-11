@@ -13,6 +13,7 @@ public class GameFSM : StateMachineMB
     public GameTransitionState TransitionState;
     public GamePlayerTurnState PlayerTurn;
     public GameEnemyTurnState EnemyTurn;
+    public GameOverState OverState;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class GameFSM : StateMachineMB
         TransitionState = new GameTransitionState(this, _controller);
         PlayerTurn = new GamePlayerTurnState(this, _controller);
         EnemyTurn = new GameEnemyTurnState(this, _controller);
+        OverState = new GameOverState(this, _controller);
     }
     private void Start()
     {

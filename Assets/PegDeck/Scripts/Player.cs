@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     private int _currentDefense;
     private int _currentEnergy;
     private Health _health;
+
+    public Action OnPlayerDefeated = delegate { };
 
     private void Awake()
     {
@@ -89,11 +92,22 @@ public class Player : MonoBehaviour
         }
         _healthSlider.value = _health._currentHealth;
         _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
+
+        if (_health._currentHealth <= 0)
+        {
+            OnPlayerDefeated?.Invoke();
+        }
     }
 
     public void DealDamage(Enemy target)
     {
         target.TakeDamage(_currentAttack);
+    }
+
+    public void UpdateHealthUI()
+    {
+        _healthSlider.value = _health._currentHealth;
+        _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
     }
 
     public int GetCurrentEnergy()

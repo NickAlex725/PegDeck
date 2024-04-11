@@ -17,11 +17,18 @@ public class GameEnemyTurnState : State
     {
         base.Enter();
         _controller.enemy.enemyTurnOver = false;
+        
+        _controller.CardManager.enemyAttackUI.text = "The enemy did " 
+            + (_controller.enemy.damageAmount - _controller.player.GetCurrentDefense()) 
+            +" points of damage to you!";
+
         _controller.enemy.DealDamage();
     }
 
     public override void Exit()
     {
+        _controller.CardManager.enemyAttackUI.text = "";
+
         base.Exit();
     }
 
