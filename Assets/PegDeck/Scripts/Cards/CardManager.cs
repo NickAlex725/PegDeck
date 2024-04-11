@@ -78,6 +78,12 @@ public class CardManager : MonoBehaviour
             _cardsInHand[i] = Instantiate(_cardsInHand[i], _cardPositions[i].position, Quaternion.identity);
         }
 
+        //try setting active if inactive
+        foreach (var card in _cardsInHand)
+        {
+            if(card.gameObject.activeInHierarchy == false) card.gameObject.SetActive(true);
+        }
+
         UpdateUI();
     }
 
@@ -100,6 +106,8 @@ public class CardManager : MonoBehaviour
     //Randomly shuffles the discard pile into the draw pile
     public void DiscardPileToDrawPile()
     {
+        Debug.Log("DiscardPileToDrawPile()");
+
         var count = _discardPile.Count;
         for (int i = 0; i < count; i++)
         {

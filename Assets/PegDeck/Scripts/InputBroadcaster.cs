@@ -8,6 +8,7 @@ using UnityEngine;
 public class InputBroadcaster : MonoBehaviour
 {
     private PlayerInput _input;
+    private Camera _mainCamera;
 
     private InputAction _touch;
     private InputAction _touchPress;
@@ -20,6 +21,7 @@ public class InputBroadcaster : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<PlayerInput>();
+        _mainCamera = Camera.main;
         _touch = _input.actions["Touch"];
         _touchPress = _input.actions["TouchPress"];
     }

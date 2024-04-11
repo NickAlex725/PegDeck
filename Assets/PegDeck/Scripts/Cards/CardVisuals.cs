@@ -39,6 +39,7 @@ public class CardVisuals : MonoBehaviour
             {
                 AttackCard attack = _card.GetComponentInParent<AttackCard>();
                 DefendCard defend = _card.GetComponentInParent<DefendCard>();
+                EnergyCard energy = _card.GetComponentInParent<EnergyCard>();
 
                 if(attack != null)
                 {
@@ -46,7 +47,11 @@ public class CardVisuals : MonoBehaviour
                 }
                 if(defend != null)
                 {
-                    _statsText.text = _player.GetCurrentDefense().ToString();
+                    _statsText.text = _player.GetDefenseStatOnCard().ToString();
+                }
+                if(energy != null)
+                {
+                    _statsText.text = energy.EnergyGain.ToString();
                 }
             }
         }

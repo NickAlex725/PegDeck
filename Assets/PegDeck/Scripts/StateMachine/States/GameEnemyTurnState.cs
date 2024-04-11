@@ -34,7 +34,7 @@ public class GameEnemyTurnState : State
     {
         base.Tick();
 
-        if(StateDuration > 3f)
+        if(StateDuration > 2f)
         {
             if (_controller.enemy.enemyTurnOver == true)
             {

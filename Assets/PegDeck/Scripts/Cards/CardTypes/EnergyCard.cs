@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnergyCard : CardParent
 {
+    public int EnergyGain => _energyGain;
+
     public override void CardAction()
     {
         if (_player.GetCurrentEnergy() >= _energyCost)

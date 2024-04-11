@@ -108,4 +108,8 @@ public class Player : MonoBehaviour
     {
         return _currentDefense;
     }
+    public int GetDefenseStatOnCard()
+    {
+        return _defenseStatOnCard;
+    }
 }
