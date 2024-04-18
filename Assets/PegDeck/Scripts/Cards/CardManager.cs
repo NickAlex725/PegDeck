@@ -7,6 +7,8 @@ public class CardManager : MonoBehaviour
 {
     [SerializeField] private List<CardParent> _startingDrawPile;
     [SerializeField] private List<Transform> _cardPositions;
+    [SerializeField] private Transform _drawPilePosition;
+    [SerializeField] private Transform _discardPilePosition;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _drawPileCountUI;
@@ -76,7 +78,8 @@ public class CardManager : MonoBehaviour
         }
         for (int i = 0; i < _cardsInHand.Count; i++)
         {
-            _cardsInHand[i] = Instantiate(_cardsInHand[i], _cardPositions[i].position, Quaternion.identity);
+            _cardsInHand[i] = Instantiate(_cardsInHand[i], _drawPilePosition.position, Quaternion.identity);
+            _cardsInHand[i].MoveTowardsPosition(_cardPositions[i].position);
         }
 
         //try setting active if inactive
@@ -92,16 +95,13 @@ public class CardManager : MonoBehaviour
     public void DiscardHand()
     {
         var count = _cardsInHand.Count;
+
         for (int i = count - 1; i >= 0; i--)
         {
-            //_discardPile.Add(_cardsInHand[i]);
-            DiscardCard(_cardsInHand[i]);
+            _cardsInHand[i].MoveTowardsPosition(_discardPilePosition.position);
         }
-        _cardsInHand.Clear();
 
-        UpdateUI();
-
-        playerTurnOver = true;
+        StartCoroutine(DelayEndPlayerTurn(count, 1.0f));
     }
 
     //Randomly shuffles the discard pile into the draw pile
@@ -135,6 +135,7 @@ public class CardManager : MonoBehaviour
             }
         }
 
+
         UpdateUI();
     }
 
@@ -142,5 +143,21 @@ public class CardManager : MonoBehaviour
     {
         _drawPileCountUI.text = _drawPile.Count.ToString();
         _discardPileCountUI.text = _discardPile.Count.ToString();
+    }
+
+    IEnumerator DelayEndPlayerTurn(int listCount, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        for (int i = listCount - 1; i >= 0; i--)
+        {
+            //_discardPile.Add(_cardsInHand[i]);
+            DiscardCard(_cardsInHand[i]);
+        }
+        _cardsInHand.Clear();
+
+        UpdateUI();
+
+        playerTurnOver = true;
     }
 }
