@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnergyCard : CardParent
 {
+    public int _energyGain;
     public int EnergyGain => _energyGain;
 
     public override void CardAction()

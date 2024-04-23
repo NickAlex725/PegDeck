@@ -18,7 +18,6 @@ public abstract class CardParent : MonoBehaviour
     protected Player _player;
     protected Enemy _target;
     protected int _attackGain;
-    protected int _energyGain;
 
     [Header("Unity Events")]
     public UnityEvent OnAtTargetPositionUE;

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerpSpeed: 5
-  _energyCost: 1
+  _energyCost: 0
   _type: 2
   OnAtTargetPositionUE:
     m_PersistentCalls:
@@ -160,6 +160,7 @@ MonoBehaviour:
           m_StringArgument: Energy UseCard
           m_BoolArgument: 0
         m_CallState: 2
+  _energyGain: 1
 --- !u!114 &979106940889263010
 MonoBehaviour:
   m_ObjectHideFlags: 0

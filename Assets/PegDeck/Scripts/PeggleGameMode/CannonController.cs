@@ -22,6 +22,7 @@ public class CannonController : MonoBehaviour
     [Header("Ball Settings")]
     public bool ballReady = true;
     public int remainingBalls = 1;
+    public float maxBallSpeed = 2;
 
     private InputBroadcaster _input;
     private Camera _mainCamera;
@@ -66,7 +67,10 @@ public class CannonController : MonoBehaviour
                 float angle = Vector3.Angle(direction, -transform.up) * ((current.x < _pivotPosition.x) ? -1 : 1);
 
                 _origin.rotation = Quaternion.Euler(_origin.rotation.x, _origin.rotation.y, angle);
+                direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
+                direction.y = Mathf.Clamp(direction.y, -maxBallSpeed, maxBallSpeed);
                 _savedDirection = direction;
+                Debug.Log(_savedDirection);
                 Debug.DrawRay(_pivotPosition, _savedDirection, Color.red);
             }
         }
