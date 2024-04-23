@@ -21,8 +21,10 @@ public class CannonController : MonoBehaviour
 
     [Header("Ball Settings")]
     public bool ballReady = true;
-    public int remainingBalls = 1;
-    public float maxBallSpeed = 2;
+    public int ballsPerTurn = 2;
+    //public float maxBallSpeed = 2;
+    public int _remainingBalls;
+    public int _extraBalls;
 
     private InputBroadcaster _input;
     private Camera _mainCamera;
@@ -35,11 +37,12 @@ public class CannonController : MonoBehaviour
     {
         _input = GetComponent<InputBroadcaster>();
         _mainCamera = Camera.main;
+        _remainingBalls = ballsPerTurn;
     }
     private void Start()
     {
         _pivotPosition = _origin.position;
-        if (_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
+        if (_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
     }
     private void OnEnable()
     {
@@ -67,8 +70,8 @@ public class CannonController : MonoBehaviour
                 float angle = Vector3.Angle(direction, -transform.up) * ((current.x < _pivotPosition.x) ? -1 : 1);
 
                 _origin.rotation = Quaternion.Euler(_origin.rotation.x, _origin.rotation.y, angle);
-                direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
-                direction.y = Mathf.Clamp(direction.y, -maxBallSpeed, maxBallSpeed);
+                //direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
+                //direction.y = Mathf.Clamp(direction.y, -maxBallSpeed, maxBallSpeed);
                 _savedDirection = direction;
                 Debug.Log(_savedDirection);
                 Debug.DrawRay(_pivotPosition, _savedDirection, Color.red);
@@ -93,14 +96,14 @@ public class CannonController : MonoBehaviour
     {
         if (_ballPrefab == null || _ballSpawn == null) return;
 
-        if (ballReady && remainingBalls > 0)
+        if (ballReady && _remainingBalls > 0)
         {
             Ball ball = Instantiate(_ballPrefab, null);
             ball.transform.position = _ballSpawn.position;
             Rigidbody2D rBody = ball.GetComponent<Rigidbody2D>();
             ballReady = false;
-            remainingBalls--;
-            if(_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
+            _remainingBalls--;
+            if(_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
 
             if (rBody != null)
             {
@@ -111,13 +114,17 @@ public class CannonController : MonoBehaviour
     public void LaunchReady()
     {
         ballReady = true;
-        if (_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
+        if (_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
     }
     public void ResetCannon()
     {
         ballReady = true;
-        remainingBalls = 2;
-        if (_ballCountText != null) _ballCountText.text = remainingBalls.ToString();
+        _remainingBalls = ballsPerTurn + _extraBalls;
+        if (_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
+    }
+    public void GainExtraBall()
+    {
+        _extraBalls++;
     }
     #endregion
 }

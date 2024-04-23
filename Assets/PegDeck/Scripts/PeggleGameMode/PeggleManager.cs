@@ -57,8 +57,9 @@ public class PeggleManager : MonoBehaviour
     private void CheckTransition()
     {
         PrepCannon();
-        if(_cannon.remainingBalls == 0)
+        if(_cannon._remainingBalls == 0)
         {
+            _cannon._extraBalls = 0;
             canTransition = true;
         }
     }
@@ -94,5 +95,9 @@ public class PeggleManager : MonoBehaviour
     public void ResetCannon()
     {
         _cannon.ResetCannon();
+    }
+    public void GainExtraBall()
+    {
+        _cannon.GainExtraBall();
     }
 }

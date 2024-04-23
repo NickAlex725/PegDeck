@@ -19,8 +19,8 @@ public class GameEnemyTurnState : State
         _controller.enemy.enemyTurnOver = false;
         
         _controller.CardManager.enemyAttackUI.text = "The enemy did " 
-            + (_controller.enemy.damageAmount - _controller.player.GetCurrentDefense()) 
-            +" points of damage to you!";
+            + Mathf.Clamp((_controller.enemy.damageAmount - _controller.player.GetCurrentDefense()),
+            0, _controller.enemy.damageAmount) +" points of damage to you!";
 
         _controller.enemy.DealDamage();
     }

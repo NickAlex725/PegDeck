@@ -15,6 +15,7 @@ public abstract class CardParent : MonoBehaviour
     public CardType CardType => _type;
 
     protected CardManager _cardManager;
+    protected PeggleManager _peggleManager;
     protected Player _player;
     protected Enemy _target;
     protected int _attackGain;
@@ -33,6 +34,7 @@ public abstract class CardParent : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
         _cardManager = FindObjectOfType<CardManager>();
+        _peggleManager = FindObjectOfType<PeggleManager>();
         _target = FindObjectOfType<Enemy>();
         _animator = GetComponent<Animator>();
     }
