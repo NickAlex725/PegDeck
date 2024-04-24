@@ -5,7 +5,7 @@ using UnityEngine;
 public class PegboardGenerator : MonoBehaviour
 {
     [SerializeField] List<Peg> _pegs = new List<Peg>();
-    [SerializeField] int _spacing;
+    [SerializeField] int _spacing = 1;
     [SerializeField] Transform _topLeft;
     [SerializeField] Transform _bottonLeft;
     [SerializeField] Transform _topRight;
@@ -22,7 +22,7 @@ public class PegboardGenerator : MonoBehaviour
         _minX = _topLeft.position.x;
         _maxX = _topRight.position.x;
         _minY = _bottonLeft.position.y;
-        _maxY = _topLeft.position.x;
+        _maxY = _topLeft.position.y;
         //testing
         GeneratePegs();
     }
@@ -30,10 +30,14 @@ public class PegboardGenerator : MonoBehaviour
     public void GeneratePegs()
     {
         _placementTransform = _topLeft;
-        for (float i = _minX; i <= _maxX; i += 1)
+        for (float i = _minY; i <= _maxY; i += _spacing)
         {
-            _placementTransform.position = new Vector2(i, 7.5f);
-            Instantiate(_pegs[0], _placementTransform.position, Quaternion.identity);
+            for (float j = _minX; j <= _maxX; j += _spacing)
+            {
+                _placementTransform.position = new Vector2(j, i);
+                var pegIndex = Random.Range(0, _pegs.Count);
+                Instantiate(_pegs[pegIndex], _placementTransform.position, Quaternion.identity);
+            }
         }
     }
 }
