@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2915773983364100120}
   - component: {fileID: 2915773983364100127}
   - component: {fileID: 2915773983364100121}
-  - component: {fileID: -9025151697865861503}
   - component: {fileID: 979106940889263010}
   - component: {fileID: 7709996316162932959}
+  - component: {fileID: 3209000399799093600}
   m_Layer: 0
-  m_Name: EnergyCard
+  m_Name: ExtraBallCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7927721a276679428b17e7b41353019, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e71ef4d68f29f384d95a9e0bce39f2a9, type: 3}
+  m_Color: {r: 0.048460312, g: 0.9339623, b: 0.09198589, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,7 +107,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.4}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -115,52 +115,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4}
   m_EdgeRadius: 0
---- !u!114 &-9025151697865861503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2915773983364100125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb750dcf1c953b459ce4d1cbbbebe30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lerpSpeed: 5
-  _energyCost: 0
-  _type: 2
-  OnAtTargetPositionUE:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDoCardActionUE:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7709996316162932959}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7709996316162932959}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Energy UseCard
-          m_BoolArgument: 0
-        m_CallState: 2
-  _energyGain: 1
 --- !u!114 &979106940889263010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +155,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3209000399799093600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2915773983364100125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9491dbb0e3ed4a48be550cccefca562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpSpeed: 5
+  _energyCost: 1
+  _type: 3
+  OnAtTargetPositionUE:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoCardActionUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2348569685404137122
 PrefabInstance:
   m_ObjectHideFlags: 0

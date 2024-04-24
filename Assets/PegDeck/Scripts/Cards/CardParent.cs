@@ -15,10 +15,10 @@ public abstract class CardParent : MonoBehaviour
     public CardType CardType => _type;
 
     protected CardManager _cardManager;
+    protected PeggleManager _peggleManager;
     protected Player _player;
     protected Enemy _target;
     protected int _attackGain;
-    protected int _energyGain;
 
     [Header("Unity Events")]
     public UnityEvent OnAtTargetPositionUE;
@@ -34,6 +34,7 @@ public abstract class CardParent : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
         _cardManager = FindObjectOfType<CardManager>();
+        _peggleManager = FindObjectOfType<PeggleManager>();
         _target = FindObjectOfType<Enemy>();
         _animator = GetComponent<Animator>();
     }

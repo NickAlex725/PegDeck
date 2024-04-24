@@ -104,6 +104,10 @@ public class CardVisuals : MonoBehaviour
                     EnergyCard energy = _card.GetComponentInParent<EnergyCard>();
                     _statsText.text = energy.EnergyGain.ToString();
                 }
+                else if(_card.CardType == CardType.Special)
+                {
+                    _statsText.text = "S";
+                }
             }
         }
         

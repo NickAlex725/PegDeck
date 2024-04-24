@@ -9,6 +9,7 @@ public class Peg : MonoBehaviour
     protected PeggleManager _peggleManager;
 
     protected float disableDelay = 0.15f;
+    protected bool _canBeHit = true;
 
     [Header("Unity Events")]
     public UnityEvent OnEnableUE;
@@ -21,13 +22,18 @@ public class Peg : MonoBehaviour
     private void OnEnable()
     {
         OnEnableUE?.Invoke();
+        _canBeHit = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<Ball>())
         {
-            OnPegHit();
+            if (_canBeHit)
+            {
+                _canBeHit = false;
+                OnPegHit();
+            }
         }
     }
 
@@ -43,5 +49,10 @@ public class Peg : MonoBehaviour
         yield return new WaitForSeconds(disableDelay);
 
         gameObject.SetActive(false);
+    }
+
+    public void EnableHit(bool canBeHit)
+    {
+        _canBeHit = canBeHit;
     }
 }
