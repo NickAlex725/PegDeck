@@ -9,12 +9,14 @@ public class PeggleManager : MonoBehaviour
     [SerializeField] private CannonController _cannon;
     [SerializeField] private TextMeshProUGUI _attackUI;
     [SerializeField] private TextMeshProUGUI _defenseUI;
+    [SerializeField] private TextMeshProUGUI _energyUI;
     [SerializeField] private Transform _pegsParent;
 
     public bool canTransition = false;
 
     public int attackPegsHit { get; private set; }
     public int defensePegsHit { get; private set; }
+    public int energyPegsHit { get; private set; }
 
     List<GameObject> _pegsList = new List<GameObject>();
 
@@ -73,6 +75,12 @@ public class PeggleManager : MonoBehaviour
     {
         defensePegsHit++;
         _defenseUI.text = defensePegsHit.ToString();
+    }
+
+    public void AddEnergy()
+    {
+        energyPegsHit++;
+        _energyUI.text = energyPegsHit.ToString();
     }
 
     public void ResetPegsHit()
