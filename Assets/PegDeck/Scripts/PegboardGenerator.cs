@@ -24,7 +24,7 @@ public class PegboardGenerator : MonoBehaviour
         _minY = _bottonLeft.position.y;
         _maxY = _topLeft.position.y;
         //testing
-        GeneratePegs();
+        //GeneratePegs();
     }
 
     public void GeneratePegs()
