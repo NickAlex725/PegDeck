@@ -67,7 +67,7 @@ public class CannonController : MonoBehaviour
             if(current.y < _pivotPosition.y && Vector3.Distance(current, _pivotPosition) > _buffer)
             {
                 Vector2 direction = current - _pivotPosition;
-                float angle = Vector3.Angle(direction, -transform.up) * ((current.x < _pivotPosition.x) ? -1 : 1);
+                float angle = Vector3.Angle(direction.normalized, -transform.up) * ((current.x < _pivotPosition.x) ? -1 : 1);
 
                 _origin.rotation = Quaternion.Euler(_origin.rotation.x, _origin.rotation.y, angle);
                 //direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
