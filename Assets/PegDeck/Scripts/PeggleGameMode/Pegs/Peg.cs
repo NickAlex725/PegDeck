@@ -41,6 +41,7 @@ public class Peg : MonoBehaviour
     {
         OnPegHitUE?.Invoke();
 
+        AudioSFX.Instance.PlaySoundEffect(SFXType.PegHit);
         //add hit effects in parent
     }
 

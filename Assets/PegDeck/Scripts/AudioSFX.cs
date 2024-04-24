@@ -57,9 +57,9 @@ public class AudioSFX : MonoBehaviour
     }
     private void Start()
     {
-        PlayerSoundEffect(SFXType.PlayCard);
+        PlaySoundEffect(SFXType.PlayCard);
     }
-    public void PlayerSoundEffect(SFXType sfx)
+    public void PlaySoundEffect(SFXType sfx)
     {
         if(audioSource == null)
         {
@@ -127,7 +127,7 @@ public class AudioSFX : MonoBehaviour
 
         audioSource.PlayOneShot(useClip, sfxVolume);
     }
-    public void PlayerSoundEffect(SFXType sfx, float volume)
+    public void PlaySoundEffect(SFXType sfx, float volume)
     {
         if (audioSource == null)
         {
