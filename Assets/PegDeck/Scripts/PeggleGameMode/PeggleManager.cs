@@ -89,6 +89,8 @@ public class PeggleManager : MonoBehaviour
         _attackUI.text = attackPegsHit.ToString();
         defensePegsHit = 0;
         _defenseUI.text = defensePegsHit.ToString();
+        energyPegsHit = 0;
+        _energyUI.text = energyPegsHit.ToString();
 
         ResetPegs();
     }

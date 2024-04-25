@@ -6,7 +6,10 @@ public class ExtraBallCard : CardParent
 {
     public override void CardAction()
     {
-        base.CardAction();
-        _peggleManager.GainExtraBall();
+        if (_player.GetCurrentEnergy() >= _energyCost)
+        {
+            _peggleManager.GainExtraBall(); base.CardAction();
+            base.CardAction();
+        }
     }
 }

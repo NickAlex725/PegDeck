@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48a41289c57e3f8488031f91ad2c818e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f80d8d4f9b61264eab639fefdd812c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,10 +95,10 @@ GameObject:
   - component: {fileID: 8390079255288677520}
   - component: {fileID: 8050265131110137187}
   - component: {fileID: 8526299654958817292}
-  - component: {fileID: 6724008500184547226}
   - component: {fileID: 1449081150958521132}
+  - component: {fileID: 1549439157311449549}
   m_Layer: 0
-  m_Name: DefensePeg
+  m_Name: EnergyPeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48a41289c57e3f8488031f91ad2c818e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f80d8d4f9b61264eab639fefdd812c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,7 +189,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.51
---- !u!114 &6724008500184547226
+--- !u!95 &1449081150958521132
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513848043510852125}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a39ea242d678aa149bf5dfc405ed02b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1549439157311449549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5513848043510852125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb7f822c43c516419f1bc8d712bd0e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 542d662c115f22b46a3739c12af77ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnEnableUE:
@@ -240,29 +260,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DefensePegHit
-          m_BoolArgument: 1
+          m_StringArgument: PegHit
+          m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &1449081150958521132
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513848043510852125}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f4a219a3a78671946a3639a0d1a5731c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9184635094469604774
 GameObject:
   m_ObjectHideFlags: 0

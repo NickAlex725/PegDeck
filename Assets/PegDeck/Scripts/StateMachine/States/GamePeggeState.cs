@@ -32,6 +32,7 @@ public class GamePeggeState : State
         //add stats to player
         _controller.player.AddAttack(_controller.PeggleManager.attackPegsHit);
         _controller.player.AddDefense(_controller.PeggleManager.defensePegsHit);
+        _controller.player.AddEnergy(_controller.PeggleManager.energyPegsHit);
     }
 
     public override void FixedTick()

@@ -19,7 +19,7 @@ public class GamePlayerTurnState : State
         _controller.ChangeUI(false, true);
         _controller.enemy.CalcDamage();
         _controller.CardManager.playerTurnOver = false;
-        _controller.CardManager.DrawCards(4);
+        _controller.CardManager.DrawCards(5);
 
         _controller.player.UpdateHealthUI();
         _controller.enemy.UpdateHealthUI();
