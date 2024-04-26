@@ -88,6 +88,9 @@ public class CardManager : MonoBehaviour
             if(card.gameObject.activeInHierarchy == false) card.gameObject.SetActive(true);
         }
 
+        //sfx
+        AudioSFX.Instance.PlaySoundEffect(SFXType.DrawCard);
+
         UpdateUI();
     }
 
@@ -99,6 +102,12 @@ public class CardManager : MonoBehaviour
         for (int i = count - 1; i >= 0; i--)
         {
             _cardsInHand[i].MoveTowardsPosition(_discardPilePosition.position);
+        }
+
+        if(count > 0)
+        {
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.DiscardCard);
         }
 
         StartCoroutine(DelayEndPlayerTurn(count, 1.0f));

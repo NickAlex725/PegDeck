@@ -72,6 +72,9 @@ public abstract class CardParent : MonoBehaviour
             OnDoCardActionUE?.Invoke();
             OnCardUpdate?.Invoke();
 
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.PlayCard);
+
             Vector3 discardPos = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z);
             MoveTowardsPosition(discardPos);
 

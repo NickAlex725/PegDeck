@@ -23,6 +23,8 @@ public class GamePlayerTurnState : State
 
         _controller.player.UpdateHealthUI();
         _controller.enemy.UpdateHealthUI();
+
+        _controller.InfoController.UpdatePanel(InfoState.PlayerText);
     }
 
     public override void Exit()
@@ -41,6 +43,9 @@ public class GamePlayerTurnState : State
 
         if(_controller.CardManager.playerTurnOver == true)
         {
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.EnterEnemyState);
+
             _stateMachine.ChangeState(_stateMachine.EnemyTurn);
         }
     }

@@ -17,12 +17,8 @@ public class GameEnemyTurnState : State
     {
         base.Enter();
         _controller.enemy.enemyTurnOver = false;
-        
-        _controller.CardManager.enemyAttackUI.text = "The enemy did " 
-            + Mathf.Clamp((_controller.enemy.damageAmount - _controller.player.GetCurrentDefense()),
-            0, _controller.enemy.damageAmount) +" points of damage to you!";
 
-        _controller.enemy.DealDamage();
+        _controller.InfoController.UpdatePanel(InfoState.EnemyText);
     }
 
     public override void Exit()
@@ -41,13 +37,33 @@ public class GameEnemyTurnState : State
     {
         base.Tick();
 
-        if(StateDuration > 2f)
+        if (StateDuration > 2f && _controller.enemy.enemyTurnOver == false)
         {
-            if (_controller.enemy.enemyTurnOver == true)
+            //do damage
+            int damage = _controller.enemy.damageAmount - _controller.player.GetCurrentDefense();
+
+            _controller.CardManager.enemyAttackUI.text = "The enemy did "
+            + Mathf.Clamp(damage, 0, _controller.enemy.damageAmount) + " points of damage to you!";
+
+            //animation
+            _controller.enemy.DoAttackAnimation();
+
+            //sfx
+            if (damage > 0)
             {
-                _stateMachine.ChangeState(_stateMachine.TransitionState);
+                AudioSFX.Instance.PlaySoundEffect(SFXType.PlayerHit);
             }
+
+            _controller.enemy.DealDamage();
         }
-        
+        if(StateDuration > 4f && _controller.enemy.enemyTurnOver == true)
+        {
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.EnterPeggleState);
+
+            //change state
+            _stateMachine.ChangeState(_stateMachine.TransitionState);
+        }
+
     }
 }

@@ -62,7 +62,8 @@ public class PeggleManager : MonoBehaviour
         if(_cannon._remainingBalls == 0)
         {
             _cannon._extraBalls = 0;
-            canTransition = true;
+
+            StartCoroutine(DelayTransition(1.5f));
         }
     }
     public void AddAttack()
@@ -109,5 +110,12 @@ public class PeggleManager : MonoBehaviour
     public void GainExtraBall()
     {
         _cannon.GainExtraBall();
+    }
+
+    IEnumerator DelayTransition(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        canTransition = true;
     }
 }

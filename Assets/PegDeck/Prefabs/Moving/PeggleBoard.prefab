@@ -1181,6 +1181,7 @@ MonoBehaviour:
   _cannon: {fileID: 3836182123254370124}
   _attackUI: {fileID: 3836182122090404426}
   _defenseUI: {fileID: 3836182123442301750}
+  _energyUI: {fileID: 0}
   _pegsParent: {fileID: 3836182121558695615}
   canTransition: 0
 --- !u!1 &3836182122362422151
@@ -1783,7 +1784,7 @@ MonoBehaviour:
   _origin: {fileID: 3836182122427047157}
   _ballSpawn: {fileID: 3836182122745555749}
   _ballCountText: {fileID: 3836182121667367456}
-  _cannonForce: 300
+  _cannonForce: 800
   _buffer: 1
   _ballPrefab: {fileID: 33349561, guid: e3a84561d17179244a035001d6330126, type: 3}
   ballReady: 1

@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     private Health _health;
     private Player _player;
+    private Animator _animator;
     
     public int damageAmount { get; private set; }
 
@@ -25,9 +26,35 @@ public class Enemy : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
         _health = GetComponent<Health>();
+        _animator = GetComponent<Animator>();
         _healthSlider.maxValue = _health.GetMaxHealth();
         _healthSlider.value = _healthSlider.maxValue;
     }
+    private void Start()
+    {
+        _animator.enabled = false;
+    }
+
+    #region Animation
+    public void DoHurtAnimation()
+    {
+        _animator.enabled = true;
+        _animator.SetTrigger("EnemyHit");
+    }
+    public void EndHurtAnimation()
+    {
+        _animator.enabled = false;
+    }
+    public void DoAttackAnimation()
+    {
+        _animator.enabled = true;
+        _animator.SetTrigger("EnemyAttack");
+    }
+    public void EndAttackAnimation()
+    {
+        _animator.enabled = false;
+    }
+    #endregion
 
     public void TakeDamage(int damage)
     {
@@ -38,7 +65,8 @@ public class Enemy : MonoBehaviour
 
         if(_health._currentHealth <= 0)
         {
-            OnEnemyDefeated?.Invoke();
+            //OnEnemyDefeated?.Invoke();
+            StartCoroutine(DelayEnemyDefeat(1.0f));
         }
     }
 
@@ -58,5 +86,12 @@ public class Enemy : MonoBehaviour
     {
         _healthSlider.value = _health._currentHealth;
         _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
+    }
+
+    IEnumerator DelayEnemyDefeat(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        OnEnemyDefeated?.Invoke();
     }
 }

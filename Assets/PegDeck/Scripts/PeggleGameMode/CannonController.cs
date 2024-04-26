@@ -105,9 +105,13 @@ public class CannonController : MonoBehaviour
             _remainingBalls--;
             if(_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
 
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.BallLaunch);
+
             if (rBody != null)
             {
-                rBody.AddForce(_savedDirection * _cannonForce, ForceMode2D.Force);
+                rBody.velocity = Vector3.zero;
+                rBody.AddForce(_savedDirection.normalized * _cannonForce, ForceMode2D.Force);
             }
         }
     }
