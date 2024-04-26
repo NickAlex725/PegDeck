@@ -9,11 +9,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private PeggleManager _peggleManager;
     [SerializeField] private CardManager _cardManager;
     [SerializeField] private CameraController _cameraController;
+    [SerializeField] private InfoController _infoController;
 
 
     public PeggleManager PeggleManager => _peggleManager;
     public CardManager CardManager => _cardManager;
     public CameraController CameraController => _cameraController;
+    public InfoController InfoController => _infoController;
 
     [Header("UI")]
     [SerializeField] private Canvas _peggleUI;

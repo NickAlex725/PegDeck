@@ -19,6 +19,9 @@ public class BallKillZone : MonoBehaviour
             // transition level and peggle state
             Destroy(collision.gameObject);
 
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.BallDeath);
+
             OnBallTrigger?.Invoke();
         }
     }

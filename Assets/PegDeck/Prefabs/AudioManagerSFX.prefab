@@ -142,16 +142,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxVolume: 1
-  cDrawCard: {fileID: 0}
-  cPlayCard: {fileID: 0}
-  cDiscardCard: {fileID: 0}
-  cBallLaunch: {fileID: 0}
-  cBallDeath: {fileID: 0}
-  cBallBounce: {fileID: 0}
-  cPegHit: {fileID: 0}
-  cEnemyHit: {fileID: 0}
-  cPlayerHit: {fileID: 0}
-  cButtonPress: {fileID: 0}
-  cEnterCardState: {fileID: 0}
-  cEnterEnemyState: {fileID: 0}
-  cEnterPeggleState: {fileID: 0}
+  cDrawCard: {fileID: 8300000, guid: 65a7a525cfb34bd488d0899ebcf1c833, type: 3}
+  cPlayCard: {fileID: 8300000, guid: 0d6cf7843ded9df4d99589052373221f, type: 3}
+  cDiscardCard: {fileID: 8300000, guid: 3bbffefe6e4bc444395e28e90fa569a0, type: 3}
+  cBallLaunch: {fileID: 8300000, guid: c6dd1e5c77aab184ca9c455a4ada235f, type: 3}
+  cBallDeath: {fileID: 8300000, guid: 8c759278572315f4891eb37ea3eb7266, type: 3}
+  cBallBounce: {fileID: 8300000, guid: 9883384300abe674cb78649fb23a3bf0, type: 3}
+  cPegHit: {fileID: 8300000, guid: 2d8e5c08a72126e4f95e44a74cc3ea07, type: 3}
+  cEnemyHit: {fileID: 8300000, guid: f967b03b75a9ebe439a995bbed5f0f4d, type: 3}
+  cPlayerHit: {fileID: 8300000, guid: 7a72ecfc130f24346956ca2ebf0714b1, type: 3}
+  cButtonPress: {fileID: 8300000, guid: 86fdf411464120f4f805b82d3ec084f2, type: 3}
+  cEnterCardState: {fileID: 8300000, guid: ae490d4e3e98f3b4990ea90a8443d6de, type: 3}
+  cEnterEnemyState: {fileID: 8300000, guid: 07e84dd6ce3e7e441af7e0b67fabb217, type: 3}
+  cEnterPeggleState: {fileID: 8300000, guid: b42a4c4d08b5fe54996429da6785495d, type: 3}

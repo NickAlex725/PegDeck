@@ -73,7 +73,7 @@ public class CannonController : MonoBehaviour
                 //direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
                 //direction.y = Mathf.Clamp(direction.y, -maxBallSpeed, maxBallSpeed);
                 _savedDirection = direction;
-                Debug.Log(_savedDirection);
+                //Debug.Log(_savedDirection);
                 Debug.DrawRay(_pivotPosition, _savedDirection, Color.red);
             }
         }
@@ -105,9 +105,12 @@ public class CannonController : MonoBehaviour
             _remainingBalls--;
             if(_ballCountText != null) _ballCountText.text = _remainingBalls.ToString();
 
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.BallLaunch);
+
             if (rBody != null)
             {
-                rBody.AddForce(_savedDirection * _cannonForce, ForceMode2D.Force);
+                rBody.AddForce(_savedDirection.normalized * _cannonForce, ForceMode2D.Force);
             }
         }
     }

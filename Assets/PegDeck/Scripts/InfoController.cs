@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InfoController : MonoBehaviour
@@ -16,10 +17,10 @@ public class InfoController : MonoBehaviour
     [SerializeField] private Vector2 openPos = Vector2.zero;
     [SerializeField] private Vector2 closePos = new Vector2(0, -360);
 
-    [Header("Text")]
-    [Tooltip("Populate with the text that will show up in the info panel in each state.")]
-    [TextArea(3, 10)]
-    [SerializeField] private string[] stateInfo;
+    [Header("Info")]
+    [SerializeField] private GameObject peggleInfo;
+    [SerializeField] private GameObject playerInfo;
+    [SerializeField] private GameObject enemyInfo;
 
     private void Awake()
     {
@@ -86,8 +87,34 @@ public class InfoController : MonoBehaviour
         #endregion
     }
 
+    public void UpdatePanel(InfoState state)
+    {
+        switch (state)
+        {
+            case InfoState.PeggleText:
+                //
+                if (peggleInfo != null) peggleInfo.SetActive(true);
+                if (playerInfo != null) playerInfo.SetActive(false);
+                if (enemyInfo != null) enemyInfo.SetActive(false);
+                break;
+            case InfoState.PlayerText:
+                //
+                if (peggleInfo != null) peggleInfo.SetActive(false);
+                if (playerInfo != null) playerInfo.SetActive(true);
+                if (enemyInfo != null) enemyInfo.SetActive(false);
+                break;
+            case InfoState.EnemyText:
+                //
+                if (peggleInfo != null) peggleInfo.SetActive(false);
+                if (playerInfo != null) playerInfo.SetActive(false);
+                if (enemyInfo != null) enemyInfo.SetActive(true);
+                break;
+        }
+    }
     public void TogglePanel()
     {
         panelOpen = !panelOpen;
     }
 }
+
+public enum InfoState { PeggleText, PlayerText, EnemyText}

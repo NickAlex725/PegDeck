@@ -23,6 +23,10 @@ public class GamePeggeState : State
         _controller.PeggleManager.ResetCannon();
 
         _controller.player.ResetStats();
+
+        _controller.InfoController.UpdatePanel(InfoState.PeggleText);
+
+        _controller.PeggleManager.RefreshUI();
     }
 
     public override void Exit()
@@ -46,6 +50,9 @@ public class GamePeggeState : State
 
         if(_controller.PeggleManager.canTransition == true)
         {
+            //sfx
+            AudioSFX.Instance.PlaySoundEffect(SFXType.EnterCardState);
+
             _stateMachine.ChangeState(_stateMachine.TransitionState);
         }
     }
