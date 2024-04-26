@@ -69,19 +69,29 @@ public class PeggleManager : MonoBehaviour
     public void AddAttack()
     {
         attackPegsHit++;
-        _attackUI.text = attackPegsHit.ToString();
+        //_attackUI.text = attackPegsHit.ToString();
+        RefreshUI();
     }
 
     public void AddDefense()
     {
         defensePegsHit++;
-        _defenseUI.text = defensePegsHit.ToString();
+        //_defenseUI.text = defensePegsHit.ToString();
+        RefreshUI();
     }
 
     public void AddEnergy()
     {
         energyPegsHit++;
-        _energyUI.text = energyPegsHit.ToString();
+        //_energyUI.text = energyPegsHit.ToString();
+        RefreshUI();
+    }
+
+    public void RefreshUI()
+    {
+        if(_attackUI != null) _attackUI.text = attackPegsHit.ToString();
+        if(_defenseUI != null) _defenseUI.text = defensePegsHit.ToString();
+        if(_energyUI != null) _energyUI.text = energyPegsHit.ToString();
     }
 
     public void ResetPegsHit()

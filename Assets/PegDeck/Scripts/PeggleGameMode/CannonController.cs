@@ -73,7 +73,7 @@ public class CannonController : MonoBehaviour
                 //direction.x = Mathf.Clamp(direction.x, -maxBallSpeed, maxBallSpeed);
                 //direction.y = Mathf.Clamp(direction.y, -maxBallSpeed, maxBallSpeed);
                 _savedDirection = direction;
-                Debug.Log(_savedDirection);
+                //Debug.Log(_savedDirection);
                 Debug.DrawRay(_pivotPosition, _savedDirection, Color.red);
             }
         }
@@ -110,7 +110,6 @@ public class CannonController : MonoBehaviour
 
             if (rBody != null)
             {
-                rBody.velocity = Vector3.zero;
                 rBody.AddForce(_savedDirection.normalized * _cannonForce, ForceMode2D.Force);
             }
         }

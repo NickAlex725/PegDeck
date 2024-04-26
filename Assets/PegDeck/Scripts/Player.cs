@@ -39,43 +39,49 @@ public class Player : MonoBehaviour
     public void AddAttack(int amount)
     {
         _currentAttack += amount;
-        _attackUI.text = "Attack:" + _currentAttack;
+        //_attackUI.text = "Attack:" + _currentAttack;
+        RefreshStatsUI();
     }
 
     public void AddDefense(int amount)
     {
         _defenseStatOnCard += amount;
-        _defenseUI.text = "Defense:" + _currentDefense;
+        //_defenseUI.text = "Defense:" + _currentDefense;
+        RefreshStatsUI();
     }
 
     public void AddDefenseToPlayer()
     {
         _currentDefense += _defenseStatOnCard;
-        _defenseUI.text = "Defense:" + _currentDefense;
+        //_defenseUI.text = "Defense:" + _currentDefense;
+        RefreshStatsUI();
     }
 
     public void AddEnergy(int amount)
     {
         //current energy may be show higher than max energy, this is intentional
         _currentEnergy += amount;
-        _energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        //_energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        RefreshStatsUI();
     }
 
     public void UseEnergy(int amount)
     {
         _currentEnergy -= amount;
-        _energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        //_energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        RefreshStatsUI();
     }
 
     public void ResetStats()
     {
         _currentAttack = 0;
-        _attackUI.text = "Attack:" + _currentAttack;
+        //_attackUI.text = "Attack:" + _currentAttack;
         _defenseStatOnCard = 0;
         _currentDefense = 0;
-        _defenseUI.text = "Defense:" + _currentDefense;
+        //_defenseUI.text = "Defense:" + _currentDefense;
         _currentEnergy = _maxEnergy;
-        _energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        //_energyUI.text = "Energy:" + _currentEnergy + "/" + _maxEnergy;
+        RefreshStatsUI();
     }
     #endregion 
 
@@ -90,8 +96,9 @@ public class Player : MonoBehaviour
         {
             _currentDefense -= damageAmount;
         }
-        _healthSlider.value = _health._currentHealth;
-        _healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
+        //_healthSlider.value = _health._currentHealth;
+        //_healthText.text = _health._currentHealth + "/" + _health.GetMaxHealth();
+        UpdateHealthUI();
 
         if (_health._currentHealth <= 0)
         {
@@ -104,6 +111,12 @@ public class Player : MonoBehaviour
         target.TakeDamage(_currentAttack);
     }
 
+    public void RefreshStatsUI()
+    {
+        if (_attackUI != null) _attackUI.text = _currentAttack.ToString();
+        if (_defenseUI != null) _defenseUI.text = _currentDefense.ToString();
+        if (_energyUI != null) _energyUI.text = _currentEnergy.ToString();
+    }
     public void UpdateHealthUI()
     {
         _healthSlider.value = _health._currentHealth;
