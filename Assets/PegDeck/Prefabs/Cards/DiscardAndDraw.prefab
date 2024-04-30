@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2915773983364100121}
   - component: {fileID: 979106940889263010}
   - component: {fileID: 7709996316162932959}
-  - component: {fileID: 3209000399799093600}
+  - component: {fileID: -8903465270356287385}
   m_Layer: 0
-  m_Name: ExtraBallCard
+  m_Name: DiscardAndDraw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7c714b7a710b44d48995ea1b1559eaff, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.88759804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +155,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3209000399799093600
+--- !u!114 &-8903465270356287385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2915773983364100125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9491dbb0e3ed4a48be550cccefca562, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e330e865aa4a864c85c52164206c397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lerpSpeed: 5
@@ -175,7 +175,31 @@ MonoBehaviour:
       m_Calls: []
   OnDoCardActionUE:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2348569685404137122
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Canvas _peggleUI;
     [SerializeField] private Canvas _cardUI;
+    public TextMeshPro discardText;
 
     private GameFSM _stateMachine;
     public Player player;

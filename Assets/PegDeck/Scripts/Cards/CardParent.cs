@@ -81,6 +81,7 @@ public abstract class CardParent : MonoBehaviour
             StartCoroutine(DelayDiscard(0.5f));
         }
     }
+
     private void AfterCardAction()
     {
         _cardManager.DiscardCard(this);
