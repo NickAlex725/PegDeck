@@ -13,9 +13,11 @@ public class CardManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _drawPileCountUI;
     [SerializeField] private TextMeshProUGUI _discardPileCountUI;
+    public TextMeshProUGUI discardText;
     public TextMeshProUGUI enemyAttackUI;
 
     public bool playerTurnOver = false;
+    public bool discardMode = false;
 
     private List<CardParent> _discardPile;
     private List<CardParent> _drawPile;
@@ -23,6 +25,7 @@ public class CardManager : MonoBehaviour
 
     private InputBroadcaster _input;
     private Player _player;
+    private Vector2 _discardCardPos;
 
     private void Awake()
     {
@@ -59,6 +62,15 @@ public class CardManager : MonoBehaviour
             if (card != null)
             {
                 //card was hit
+                if (discardMode)
+                {
+                    discardMode = false;
+                    _discardCardPos = card.transform.position;
+                    DiscardCard(card);
+                    DrawCards(1);
+                    discardText.gameObject.SetActive(false);
+                    return;
+                }
                 card.CardAction();
             }
         }
@@ -67,7 +79,7 @@ public class CardManager : MonoBehaviour
     //Add x cards on top of a draw pile to players hand
     public void DrawCards(int drawAmount)
     {
-        for (int i = 0; i < _player._drawAmount; i++)
+        for (int i = 0; i < drawAmount; i++)
         {
             if (_drawPile.Count == 0)
             {
@@ -76,10 +88,19 @@ public class CardManager : MonoBehaviour
             _cardsInHand.Add(_drawPile[0]);
             _drawPile.RemoveAt(0);
         }
-        for (int i = 0; i < _cardsInHand.Count; i++)
+        if (drawAmount > 1)
         {
-            _cardsInHand[i] = Instantiate(_cardsInHand[i], _drawPilePosition.position, Quaternion.identity);
-            _cardsInHand[i].MoveTowardsPosition(_cardPositions[i].position);
+            for (int i = 0; i < _cardsInHand.Count; i++)
+            {
+                _cardsInHand[i] = Instantiate(_cardsInHand[i], _drawPilePosition.position, Quaternion.identity);
+                _cardsInHand[i].MoveTowardsPosition(_cardPositions[i].position);
+            }
+        }
+        else if (drawAmount == 1)
+        {
+            var index = _cardsInHand.Count - 1;
+            _cardsInHand[index] = Instantiate(_cardsInHand[index], _drawPilePosition.position, Quaternion.identity);
+            _cardsInHand[index].MoveTowardsPosition(_discardCardPos);
         }
 
         //try setting active if inactive

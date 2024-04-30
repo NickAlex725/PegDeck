@@ -9,7 +9,7 @@ using System;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _maxEnergy;
-    public int _drawAmount;
+    public int _drawAmount = 6;
 
     [Header("Player UI")]
     [SerializeField] private TextMeshProUGUI _attackUI;
