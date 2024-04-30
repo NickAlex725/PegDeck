@@ -22,10 +22,12 @@ public class CardManager : MonoBehaviour
     private List<CardParent> _cardsInHand;
 
     private InputBroadcaster _input;
+    private Player _player;
 
     private void Awake()
     {
         _input = FindObjectOfType<InputBroadcaster>();
+        _player = FindObjectOfType<Player>();
         _cardsInHand = new List<CardParent>();
         _discardPile = new List<CardParent>();
         _drawPile = new List<CardParent>(_startingDrawPile);
@@ -65,16 +67,14 @@ public class CardManager : MonoBehaviour
     //Add x cards on top of a draw pile to players hand
     public void DrawCards(int drawAmount)
     {
-        if(_drawPile.Count == 0)
+        for (int i = 0; i < _player._drawAmount; i++)
         {
-            DiscardPileToDrawPile();
-        }
-
-        for (int i = 0; i < drawAmount; i++)
-        {
-                _cardsInHand.Add(_drawPile[0]);
-                _drawPile.RemoveAt(0);
-
+            if (_drawPile.Count == 0)
+            {
+                DiscardPileToDrawPile();
+            }
+            _cardsInHand.Add(_drawPile[0]);
+            _drawPile.RemoveAt(0);
         }
         for (int i = 0; i < _cardsInHand.Count; i++)
         {
