@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackCard : CardParent
 {
+    [SerializeField] private MovingStat movingStatPrefab;
     public override void CardAction()
     {
         if (_player.GetCurrentEnergy() >= _energyCost)
@@ -17,6 +18,21 @@ public class AttackCard : CardParent
             _target.DoHurtAnimation();
 
             base.CardAction();
+        }
+    }
+
+    public void MoveStats()
+    {
+        Debug.LogWarning("MoveStats");
+        if(movingStatPrefab != null)
+        {
+            MovingStat stat = Instantiate(movingStatPrefab, _player.AttackUI.transform.parent);
+            RectTransform rect = stat.GetComponent<RectTransform>();
+            stat.InitializeMove(textLocation.GetComponent<RectTransform>().anchoredPosition, _player.CurrentAttack);
+            //rect.anchoredPosition = _player.AttackUI.GetComponent<RectTransform>().anchoredPosition;
+
+            Vector3 vPos = Camera.main.WorldToViewportPoint(_player.AttackUI.transform.position);
+            rect.anchoredPosition = vPos;
         }
     }
 }

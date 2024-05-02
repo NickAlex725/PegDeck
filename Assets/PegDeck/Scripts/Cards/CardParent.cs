@@ -9,6 +9,7 @@ public abstract class CardParent : MonoBehaviour
     [Header("Parent")]
     [SerializeField] private float _lerpSpeed = 5f;
     [SerializeField] protected int _energyCost;
+    [SerializeField] public Transform textLocation;
     [Space]
     [SerializeField] protected CardType _type;
     public int EnergyCost => _energyCost;
@@ -29,6 +30,7 @@ public abstract class CardParent : MonoBehaviour
     private Animator _animator;
     private Vector3 _targetPosition;
     private bool _canUse = true;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
@@ -37,10 +39,12 @@ public abstract class CardParent : MonoBehaviour
         _peggleManager = FindObjectOfType<PeggleManager>();
         _target = FindObjectOfType<Enemy>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void OnEnable()
     {
         _animator.enabled = false;
+        _spriteRenderer.color = General.GetModifiedOpacity(_spriteRenderer.color, 1f);
     }
     private void Update()
     {

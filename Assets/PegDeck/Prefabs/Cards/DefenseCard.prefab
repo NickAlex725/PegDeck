@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lerpSpeed: 5
   _energyCost: 1
+  textLocation: {fileID: 603923531921478711}
   _type: 1
   OnAtTargetPositionUE:
     m_PersistentCalls:
@@ -160,6 +161,7 @@ MonoBehaviour:
           m_StringArgument: Defense UseCard
           m_BoolArgument: 0
         m_CallState: 2
+  movingStatPrefab: {fileID: 7554132061931924549, guid: 6c13d4fa15728d64e93ab1ef92bb7031, type: 3}
 --- !u!114 &4627295177565248600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +327,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d026e07da9e41e942b4591e984f8dbf6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
+--- !u!224 &603923531921478711 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7785294337275916010, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
+  m_PrefabInstance: {fileID: 7236012136367733469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2540286995322046503 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5128354379713884922, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}

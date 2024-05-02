@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private TextMeshProUGUI _healthText;
 
+    public TextMeshProUGUI AttackUI => _attackUI;
+    public TextMeshProUGUI DefenseUI => _defenseUI;
+    public int CurrentAttack => _currentAttack;
+    public int CurrentDefense => _currentDefense;
+
     private int _defenseStatOnCard;
 
     //stats used for card actions
