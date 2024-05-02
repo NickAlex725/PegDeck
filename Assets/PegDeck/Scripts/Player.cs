@@ -25,12 +25,14 @@ public class Player : MonoBehaviour
     private int _currentDefense;
     private int _currentEnergy;
     private Health _health;
+    private GameController _controller;
 
     public Action OnPlayerDefeated = delegate { };
 
     private void Awake()
     {
         _health = GetComponent<Health>();
+        _controller = FindObjectOfType<GameController>();
         _currentEnergy = _maxEnergy;
         _healthSlider.maxValue = _health.GetMaxHealth();
         _healthSlider.value = _healthSlider.maxValue;
@@ -92,6 +94,9 @@ public class Player : MonoBehaviour
         {
             _health.TakeDamage(damageAmount - _currentDefense);
             _currentDefense = 0;
+
+            //player damage visual
+            _controller.DamageVisual.EnableVisual();
         }
         else
         {
