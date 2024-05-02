@@ -24,6 +24,11 @@ public class GameEnemyTurnState : State
     public override void Exit()
     {
         _controller.CardManager.enemyAttackUI.text = "";
+        
+        //boards
+        _controller.PeggleManager.ResetPegs();
+        _controller.PeggleManager.SelectBoard();
+
 
         base.Exit();
     }

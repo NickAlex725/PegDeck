@@ -18,12 +18,16 @@ public class GameSetupState : State
         base.Enter();
 
         //store pegs
-        _controller.PeggleManager.StorePegs();
+        //_controller.PeggleManager.StorePegs();
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        //boards
+        _controller.PeggleManager.ResetPegs();
+        _controller.PeggleManager.SelectBoard();
     }
 
     public override void FixedTick()

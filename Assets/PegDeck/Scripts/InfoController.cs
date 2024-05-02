@@ -93,21 +93,21 @@ public class InfoController : MonoBehaviour
         {
             case InfoState.PeggleText:
                 //
-                if (peggleInfo != null) peggleInfo.SetActive(true);
+                if (peggleInfo != null) peggleInfo.SetActive(false);
                 if (playerInfo != null) playerInfo.SetActive(false);
                 if (enemyInfo != null) enemyInfo.SetActive(false);
                 break;
             case InfoState.PlayerText:
                 //
                 if (peggleInfo != null) peggleInfo.SetActive(false);
-                if (playerInfo != null) playerInfo.SetActive(true);
+                if (playerInfo != null) playerInfo.SetActive(false);
                 if (enemyInfo != null) enemyInfo.SetActive(false);
                 break;
             case InfoState.EnemyText:
                 //
                 if (peggleInfo != null) peggleInfo.SetActive(false);
                 if (playerInfo != null) playerInfo.SetActive(false);
-                if (enemyInfo != null) enemyInfo.SetActive(true);
+                if (enemyInfo != null) enemyInfo.SetActive(false);
                 break;
         }
     }

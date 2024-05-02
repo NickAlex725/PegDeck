@@ -19,7 +19,10 @@ public class GamePeggeState : State
         _controller.ChangeUI(true, false);
 
         _controller.PeggleManager.canTransition = false;
+        
+        //boards
         _controller.PeggleManager.ResetPegsHit();
+        
         _controller.PeggleManager.ResetCannon();
 
         _controller.player.ResetStats();

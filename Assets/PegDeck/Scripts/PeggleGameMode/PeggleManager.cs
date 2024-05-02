@@ -10,7 +10,7 @@ public class PeggleManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attackUI;
     [SerializeField] private TextMeshProUGUI _defenseUI;
     [SerializeField] private TextMeshProUGUI _energyUI;
-    [SerializeField] private Transform _pegsParent;
+    [SerializeField] private List<Transform> _pegBoards;
 
     public bool canTransition = false;
 
@@ -18,6 +18,7 @@ public class PeggleManager : MonoBehaviour
     public int defensePegsHit { get; private set; }
     public int energyPegsHit { get; private set; }
 
+    Transform _currentBoard;
     List<GameObject> _pegsList = new List<GameObject>();
 
     private void OnEnable()
@@ -29,20 +30,49 @@ public class PeggleManager : MonoBehaviour
         _killZone.OnBallTrigger -= CheckTransition;
     }
 
+    public void SelectBoard()
+    {
+        int rand = Random.Range(0, _pegBoards.Count);
+
+        for (int i = 0; i < _pegBoards.Count; i++)
+        {
+            if(i == rand)
+            {
+                _currentBoard = _pegBoards[i];
+                _currentBoard.gameObject.SetActive(true);
+            }
+            else
+            {
+                _pegBoards[i].gameObject.SetActive(false);
+            }
+
+        }
+        _currentBoard = _pegBoards[rand];
+
+        StorePegs();
+    }
+    public void SelectBoard(int selectedBoard)
+    {
+        _currentBoard = _pegBoards[selectedBoard];
+
+        StorePegs();
+    }
     public void StorePegs()
     {
         _pegsList.Clear();
 
-        if(_pegsParent != null)
+        if(_currentBoard != null)
         {
-            foreach (Transform peg in _pegsParent)
+            foreach (Transform peg in _currentBoard)
             {
                 _pegsList.Add(peg.gameObject);
             }
+
+            ResetPegs();
         }
         else
         {
-            Debug.LogError("Missing peg parent.");
+            Debug.LogError("Missing peg board.");
         }
     }
     public void ResetPegs()
