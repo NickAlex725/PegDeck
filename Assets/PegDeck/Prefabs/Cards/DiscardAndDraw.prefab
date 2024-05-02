@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c714b7a710b44d48995ea1b1559eaff, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.88759804, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5dcfdd9fdacea8e478e100fa78d9cce4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,6 +218,10 @@ PrefabInstance:
     - target: {fileID: 1776000159637499688, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4280953386
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174162232362931112, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
+      propertyPath: m_text
+      value: Draw Card
       objectReference: {fileID: 0}
     - target: {fileID: 3273420792035239018, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
       propertyPath: m_IsActive

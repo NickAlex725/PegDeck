@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4280953386
       objectReference: {fileID: 0}
+    - target: {fileID: 3174162232362931112, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
+      propertyPath: m_text
+      value: Energy
+      objectReference: {fileID: 0}
     - target: {fileID: 3273420792035239018, guid: 404793e675a64a0419a3754b8e16f9fb, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private TextMeshProUGUI _healthText;
-    [SerializeField] private TextMeshProUGUI _damagePreview;
+    [SerializeField] private TextMeshProUGUI[] _damagePreview;
     [SerializeField] private int[] _damagePool;
 
     private Health _health;
@@ -79,7 +79,10 @@ public class Enemy : MonoBehaviour
     public void CalcDamage()
     {
         damageAmount = _damagePool[UnityEngine.Random.Range(0, _damagePool.Length)];
-        _damagePreview.text = damageAmount.ToString();
+        foreach(var preview in _damagePreview)
+        {
+            preview.text = damageAmount.ToString();
+        }
     }
 
     public void UpdateHealthUI()
