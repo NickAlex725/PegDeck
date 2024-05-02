@@ -16,6 +16,7 @@ public class InfoController : MonoBehaviour
     [Header("Positions")]
     [SerializeField] private Vector2 openPos = Vector2.zero;
     [SerializeField] private Vector2 closePos = new Vector2(0, -360);
+    [SerializeField] private Vector2 buttonClosePos = Vector2.zero;
 
     [Header("Info")]
     [SerializeField] private GameObject peggleInfo;
@@ -71,15 +72,15 @@ public class InfoController : MonoBehaviour
                         infoPanel.anchoredPosition = closePos;
                     }
                 }
-                if (infoButton.anchoredPosition != openPos)
+                if (infoButton.anchoredPosition != buttonClosePos)
                 {
-                    if (Vector2.Distance(infoButton.anchoredPosition, openPos) > 2.0f)
+                    if (Vector2.Distance(infoButton.anchoredPosition, buttonClosePos) > 2.0f)
                     {
-                        infoButton.anchoredPosition = Vector2.Lerp(infoButton.anchoredPosition, openPos, lerpSpeed * Time.deltaTime);
+                        infoButton.anchoredPosition = Vector2.Lerp(infoButton.anchoredPosition, buttonClosePos, lerpSpeed * Time.deltaTime);
                     }
                     else
                     {
-                        infoButton.anchoredPosition = openPos;
+                        infoButton.anchoredPosition = buttonClosePos;
                     }
                 }
             }

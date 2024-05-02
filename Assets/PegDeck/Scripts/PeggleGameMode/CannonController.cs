@@ -19,6 +19,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] private float _cannonForce = 10f;
     [Tooltip("Minimum distance from cannon where touch is detected.")]
     [SerializeField] private float _buffer = 1f;
+    [SerializeField] private float _lowerBounds;
     [SerializeField] private Ball _ballPrefab;
 
     [Header("Ball Settings")]
@@ -66,7 +67,7 @@ public class CannonController : MonoBehaviour
             Vector2 current = _mainCamera.ScreenToWorldPoint(touchPosition);
 
             //if not above button and not too close to button
-            if(current.y < _pivotPosition.y && Vector3.Distance(current, _pivotPosition) > _buffer)
+            if (current.y < _pivotPosition.y && Vector3.Distance(current, _pivotPosition) > _buffer && current.y > _lowerBounds)
             {
                 Vector2 direction = current - _pivotPosition;
                 float angle = Vector3.Angle(direction.normalized, -transform.up) * ((current.x < _pivotPosition.x) ? -1 : 1);
