@@ -27,6 +27,8 @@ public class GamePeggeState : State
 
         _controller.player.ResetStats();
 
+        _controller.enemy.CalcDamage();
+
         _controller.InfoController.UpdatePanel(InfoState.PeggleText);
 
         _controller.PeggleManager.RefreshUI();
