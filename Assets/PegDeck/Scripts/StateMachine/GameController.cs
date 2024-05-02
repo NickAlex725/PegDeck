@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class GameController : MonoBehaviour
     private GameFSM _stateMachine;
     public Player player;
     public Enemy enemy;
+    [Space]
+    public LerpUI drawPile;
+    public LerpUI discardPile;
+    [Space]
+    public Button endTurnButton;
 
     [Header("Game Over")]
     [SerializeField] private GameObject _winCanvas;

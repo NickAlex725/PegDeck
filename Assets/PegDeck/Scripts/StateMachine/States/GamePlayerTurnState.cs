@@ -25,11 +25,25 @@ public class GamePlayerTurnState : State
         _controller.enemy.UpdateHealthUI();
 
         _controller.InfoController.UpdatePanel(InfoState.PlayerText);
+
+        //move piles
+        _controller.drawPile.atStart = false;
+        _controller.discardPile.atStart = false;
+
+        //enable button
+        _controller.endTurnButton.gameObject.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        //move piles
+        _controller.drawPile.atStart = true;
+        _controller.discardPile.atStart = true;
+
+        //disable button
+        _controller.endTurnButton.gameObject.SetActive(false);
     }
 
     public override void FixedTick()
