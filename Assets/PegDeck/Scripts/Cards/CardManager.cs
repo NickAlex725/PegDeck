@@ -131,6 +131,7 @@ public class CardManager : MonoBehaviour
             AudioSFX.Instance.PlaySoundEffect(SFXType.DiscardCard);
         }
 
+        //give time for animation
         StartCoroutine(DelayEndPlayerTurn(count, 1.0f));
     }
 
