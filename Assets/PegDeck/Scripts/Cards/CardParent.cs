@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -43,6 +44,12 @@ public abstract class CardParent : MonoBehaviour
     private void OnEnable()
     {
         _spriteRenderer.color = General.GetModifiedAlpha(_spriteRenderer.color, 1f);
+        List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>(GetComponentsInChildren<TextMeshProUGUI>());
+        foreach (var text in texts)
+        {
+            text.color = General.GetModifiedAlpha(text.color, 1f);
+        }
+
         _animator.enabled = false;
     }
     private void Update()

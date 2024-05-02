@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class CannonController : MonoBehaviour
@@ -11,6 +12,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] private Transform _origin;
     [SerializeField] private Transform _ballSpawn;
     [SerializeField] private TextMeshProUGUI _ballCountText;
+    [SerializeField] private Image _cursor;
 
     [Header("Settings")]
     [Tooltip("Amount of power used to launch the ball.")]
@@ -75,6 +77,21 @@ public class CannonController : MonoBehaviour
                 _savedDirection = direction;
                 //Debug.Log(_savedDirection);
                 Debug.DrawRay(_pivotPosition, _savedDirection, Color.red);
+            }
+
+            //move cursor
+            if(_cursor != null)
+            {
+                if(_cursor.gameObject.activeInHierarchy == false) _cursor.gameObject.SetActive(true);
+
+                _cursor.rectTransform.anchoredPosition = touchPosition;
+            }
+        }
+        else
+        {
+            if(_cursor != null)
+            {
+                if (_cursor.gameObject.activeInHierarchy == true) _cursor.gameObject.SetActive(false);
             }
         }
         #endregion
