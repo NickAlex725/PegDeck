@@ -23,11 +23,11 @@ public class DamageVisual : MonoBehaviour
             {
                 _progress -= Time.deltaTime;
 
-                _damageImage.color = ChangeOpacity(_damageImage.color, _progress);
+                _damageImage.color = General.GetModifiedAlpha(_damageImage.color, _progress);
 
                 if (_progress <= 0)
                 {
-                    _damageImage.color = ChangeOpacity(_damageImage.color, 1.0f);
+                    _damageImage.color = General.GetModifiedAlpha(_damageImage.color, 1.0f);
                     DisableVisual();
                 }
             }
@@ -47,8 +47,5 @@ public class DamageVisual : MonoBehaviour
         _isVisible = true;
     }
 
-    private Color ChangeOpacity(Color color, float alpha)
-    {
-        return new Color(color.r, color.g, color.b, alpha);
-    }
+    
 }

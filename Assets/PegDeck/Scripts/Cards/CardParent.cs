@@ -26,6 +26,7 @@ public abstract class CardParent : MonoBehaviour
 
     public Action OnCardUpdate;
 
+    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Vector3 _targetPosition;
     private bool _canUse = true;
@@ -37,9 +38,11 @@ public abstract class CardParent : MonoBehaviour
         _peggleManager = FindObjectOfType<PeggleManager>();
         _target = FindObjectOfType<Enemy>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void OnEnable()
     {
+        _spriteRenderer.color = General.GetModifiedAlpha(_spriteRenderer.color, 1f);
         _animator.enabled = false;
     }
     private void Update()
